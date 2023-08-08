@@ -57,57 +57,30 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-// const game = () => {
-//     // const playerSelection = getUserChoice();
-//     for (let i = 0; i < 5; i++) {
-//         const b = playRound(getUserChoice(), getComputerChoice());
-//         console.log(b)
-//         if (b === roundResult.lose) {
-//             compScore++;
-//             // console.log("You lose the game!")
-//         } else if (b === roundResult.win) {
-//             playerScore++;
-//             // console.log("You won the game!")
-//         } else {
-//             // console.log("Tie Game!")
-//         }
-//         console.log(`Player score: ${playerScore}  Bot score: ${compScore}`)
-//     }
-                
-//     if (playerScore === compScore) {
-//         console.log("Tie game!")
-//     } else if (playerScore !== compScore && playerScore > compScore) {
-//         console.log("You win the game!")
-//     } else {
-//         console.log("You lost the game!")
-//     }
-//     console.log(`Player score: ${playerScore}  Bot score: ${compScore}`)
-// }
+const game = () => {
+  for (let i = 0; i < 5; i++) {
+      const b = playRound(getUserChoice(), getComputerChoice());
+      if (b == roundResult.draw) { console.log("Tie!") }
+      if (b == roundResult.win) { 
+          playerScore++;
+          console.log("You won the round!");
+      }
+      if (b == roundResult.lose) {
+          compScore++;
+          console.log("You lost the round!");
+      }
+  }
 
-const game1 = () => {
-    for (let i = 0; i < 5; i++) {
-        const b = playRound(getUserChoice(), getComputerChoice());
-        if (b == roundResult.draw) { console.log("Tie!") }
-        if (b == roundResult.win) { 
-            playerScore++;
-            console.log("You won the round!");
-        }
-        if (b == roundResult.lose) {
-            compScore++;
-            console.log("You lost the round!");
-        }
-    }
-
-    if (playerScore === compScore) {
-        console.log("Tie game!")
-    } else if (playerScore !== compScore && playerScore > compScore) {
-        console.log("You win the game!")
-    } else {
-        console.log("You lost the game!")
-    }
-
+  if (playerScore === compScore) {
+      console.log("Tie game!")
+  } else if (playerScore !== compScore && playerScore > compScore) {
+      console.log("You win the game!")
+  } else {
+      console.log("You lost the game!")
+  }
+  console.log(`Player score: ${playerScore}  Bot score: ${compScore}`)
 }
 
 let playerScore = 0;
 let compScore = 0;            
-game1();
+game();
