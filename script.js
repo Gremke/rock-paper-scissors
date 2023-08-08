@@ -1,10 +1,10 @@
 // Randomly return 'Rock', 'Papaer', or 'Scissors'
-        // Write function that plays single round of Rock Paper Scissors
-        // Make functions case-insensitive
-        // Return string that declares winner of round
-        // Create function called game() call playRound() inside
-            // Play 5 rounds
-            // report winner
+  // Write function that plays single round of Rock Paper Scissors
+  // Make functions case-insensitive
+  // Return string that declares winner of round
+  // Create function called game() call playRound() inside
+    // Play 5 rounds
+    // report winner
         
 const getUserChoice = input => {
     input = prompt('Rock, Paper, or Scissors?').toLowerCase();
