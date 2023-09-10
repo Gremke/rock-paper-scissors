@@ -5,20 +5,54 @@
   // Create function called game() call playRound() inside
     // Play 5 rounds
     // report winner
-        
-const getUserChoice = input => {
-    input = prompt('Rock, Paper, or Scissors?').toLowerCase();
-        if (input === 'rock' || input === 'paper' || input === 'scissors') {
-            return input;
-        } else {
-            return console.log('Not valid input.');
-        }
-}
-    
+
+let rock = document.querySelector('#rock');
+rock.addEventListener('click', () => playGame('rock'));
+
+let paper = document.querySelector('#paper');
+paper.addEventListener('click', () => playGame('paper'));
+
+let scissors = document.querySelector('#scissors');
+scissors.addEventListener('click', () => playGame('scissors'));
+
+function playGame(playerSelection, computerSelection) {
+  computerSelection = getComputerChoice();
+  b = playRound(playerSelection, computerSelection);
+  result = document.querySelector('.result');
+  score = document.querySelector('.score');
+
+  if (playerScore === 3 || compScore === 3) {
+    return;
+  }
+  if (b == roundResult.draw) { 
+    result.textContent = 'Tie!';
+    score.textContent = `Player score: ${playerScore}  Bot score: ${compScore}`;
+  }
+    if (b == roundResult.win) { 
+        playerScore++;
+        result.textContent = 'You won the round!';
+        score.textContent = `Player score: ${playerScore}  Bot score: ${compScore}`;
+    }
+    if (b == roundResult.lose) {
+        compScore++;
+        result.textContent = 'You lost the round!';
+        score.textContent = `Player score: ${playerScore}  Bot score: ${compScore}`;
+    }
+
+    if (playerScore === 3) {
+      result.textContent = 'You won the game! Hit Reset Game to play again.';
+      score.textContent = `Player score: ${playerScore}  Bot score: ${compScore}`;
+      return;
+    } else if (compScore === 3) {
+      result.textContent = 'You lost the game! Hit Reset Game to play again.';
+      score.textContent = `Player score: ${playerScore}  Bot score: ${compScore}`;
+      return;
+    }
+};
+
 const getComputerChoice = () => {
     let computerChoices = ['rock', 'paper', 'scissors'];
     return random = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-    computerChoices = computerChoices.toLowerCase();
 }
     
 const roundResult = {
@@ -57,30 +91,15 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-const game = () => {
-  for (let i = 0; i < 5; i++) {
-      const b = playRound(getUserChoice(), getComputerChoice());
-      if (b == roundResult.draw) { console.log("Tie!") }
-      if (b == roundResult.win) { 
-          playerScore++;
-          console.log("You won the round!");
-      }
-      if (b == roundResult.lose) {
-          compScore++;
-          console.log("You lost the round!");
-      }
-  }
+const reset = document.querySelector('.reset');
+reset.addEventListener('click', () => resetGame());
 
-  if (playerScore === compScore) {
-      console.log("Tie game!")
-  } else if (playerScore !== compScore && playerScore > compScore) {
-      console.log("You win the game!")
-  } else {
-      console.log("You lost the game!")
-  }
-  console.log(`Player score: ${playerScore}  Bot score: ${compScore}`)
+const resetGame = () => {
+  playerScore = 0;
+  compScore = 0;
+  result.textContent = 'To play click rock, paper, or scissors.';
+  score.textContent = 'The game has been reset. Pick a move.';
 }
 
 let playerScore = 0;
-let compScore = 0;            
-game();
+let compScore = 0;
