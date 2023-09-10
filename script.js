@@ -28,67 +28,67 @@ function playGame(playerSelection, computerSelection) {
     result.textContent = 'Tie!';
     score.textContent = `Player score: ${playerScore}  Bot score: ${compScore}`;
   }
-    if (b == roundResult.win) { 
-        playerScore++;
-        result.textContent = 'You won the round!';
-        score.textContent = `Player score: ${playerScore}  Bot score: ${compScore}`;
-    }
-    if (b == roundResult.lose) {
-        compScore++;
-        result.textContent = 'You lost the round!';
-        score.textContent = `Player score: ${playerScore}  Bot score: ${compScore}`;
-    }
+  if (b == roundResult.win) { 
+    playerScore++;
+    result.textContent = 'You won the round!';
+    score.textContent = `Player score: ${playerScore}  Bot score: ${compScore}`;
+  }
+  if (b == roundResult.lose) {
+    compScore++;
+    result.textContent = 'You lost the round!';
+    score.textContent = `Player score: ${playerScore}  Bot score: ${compScore}`;
+  }
 
-    if (playerScore === 3) {
-      result.textContent = 'You won the game! Hit Reset Game to play again.';
-      score.textContent = `Player score: ${playerScore}  Bot score: ${compScore}`;
-      return;
-    } else if (compScore === 3) {
-      result.textContent = 'You lost the game! Hit Reset Game to play again.';
-      score.textContent = `Player score: ${playerScore}  Bot score: ${compScore}`;
-      return;
-    }
+  if (playerScore === 3) {
+    result.textContent = 'You won the game! Hit Reset Game to play again.';
+    score.textContent = `Player score: ${playerScore}  Bot score: ${compScore}`;
+    return;
+  } else if (compScore === 3) {
+    result.textContent = 'You lost the game! Hit Reset Game to play again.';
+    score.textContent = `Player score: ${playerScore}  Bot score: ${compScore}`;
+    return;
+  }
 };
 
 const getComputerChoice = () => {
-    let computerChoices = ['rock', 'paper', 'scissors'];
-    return random = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+  let computerChoices = ['rock', 'paper', 'scissors'];
+  return random = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 }
     
 const roundResult = {
-    draw: 'Draw!',
-    win: 'You win the round!',
-    lose: 'You lose the round!',
+  draw: 'Draw!',
+  win: 'You win the round!',
+  lose: 'You lose the round!',
 }
             
 function playRound(playerSelection, computerSelection) {
-    if (playerSelection === computerSelection) {
-        return roundResult.draw;
+  if (playerSelection === computerSelection) {
+    return roundResult.draw;
+  }
+              
+  if (playerSelection === 'rock') {
+    if (computerSelection === 'paper') {
+      return roundResult.lose;
+    }  else {
+      return roundResult.win;
     }
+  }
+              
+  if (playerSelection === 'paper') {
+    if (computerSelection === 'scissors') {
+      return roundResult.lose;
+    } else {
+      return roundResult.win;
+    }
+  }
                 
-    if (playerSelection === 'rock') {
-        if (computerSelection === 'paper') {
-            return roundResult.lose;
-        }  else {
-            return roundResult.win;
-        }
+  if (playerSelection === 'scissors') {
+    if (computerSelection === 'rock') {
+      return roundResult.lose;
+    } else {
+      return roundResult.win;
     }
-                
-    if (playerSelection === 'paper') {
-        if (computerSelection === 'scissors') {
-            return roundResult.lose;
-        } else {
-            return roundResult.win;
-        }
-    }
-                
-    if (playerSelection === 'scissors') {
-        if (computerSelection === 'rock') {
-            return roundResult.lose;
-        } else {
-            return roundResult.win;
-        }
-    }
+  }
 }
 
 const reset = document.querySelector('.reset');
