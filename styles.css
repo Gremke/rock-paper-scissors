@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.signs {
+  margin: 50px;
+}
+
+.sign {
+  margin: 50px;
+  border-style: solid;
+  border-color: blueviolet;
+  font-size: 80px;
+}

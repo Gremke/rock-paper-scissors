@@ -25,17 +25,17 @@ function playGame(playerSelection, computerSelection) {
     return;
   }
   if (b == roundResult.draw) { 
-    result.textContent = 'Tie!';
+    result.textContent = `Tie! Player selected ${playerSelection}. Bot selected ${computerSelection}`;
     score.textContent = `Player score: ${playerScore}  Bot score: ${compScore}`;
   }
   if (b == roundResult.win) { 
     playerScore++;
-    result.textContent = 'You won the round!';
+    result.textContent = `You won the round! Player selected ${playerSelection}. Bot selected ${computerSelection}`;
     score.textContent = `Player score: ${playerScore}  Bot score: ${compScore}`;
   }
   if (b == roundResult.lose) {
     compScore++;
-    result.textContent = 'You lost the round!';
+    result.textContent = `You lost the round! Player selected ${playerSelection}. Bot selected ${computerSelection}`;
     score.textContent = `Player score: ${playerScore}  Bot score: ${compScore}`;
   }
 
