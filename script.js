@@ -42,12 +42,12 @@ function playGame(playerSelection, computerSelection) {
   if (playerScore === 3) {
     result.textContent = 'You won the game! Hit Reset Game to play again.';
     score.textContent = `Player score: ${playerScore}  Bot score: ${compScore}`;
-    document.querySelector(".resetButton").style.display = "block";
+    reset.classList.remove('hideReset');
     return;
   } else if (compScore === 3) {
     result.textContent = 'You lost the game! Hit Reset Game to play again.';
     score.textContent = `Player score: ${playerScore}  Bot score: ${compScore}`;
-    document.querySelector(".resetButton").style.display = "block";
+    reset.classList.remove('hideReset');
     return;
   } 
 };
@@ -101,7 +101,7 @@ const resetGame = () => {
   compScore = 0;
   result.textContent = 'To play click rock, paper, or scissors.';
   score.textContent = 'Player score: 0 Bot score: 0';
-  document.querySelector(".resetButton").style.display = "none";
+  reset.classList.add('hideReset');
 };
 
 let playerScore = 0;
