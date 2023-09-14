@@ -25,29 +25,31 @@ function playGame(playerSelection, computerSelection) {
     return;
   }
   if (b == roundResult.draw) { 
-    result.textContent = `Tie! Player selected ${playerSelection}. Bot selected ${computerSelection}`;
+    result.textContent = `Tie! You selected ${playerSelection}. Bot selected ${computerSelection}.`;
     score.textContent = `Player score: ${playerScore}  Bot score: ${compScore}`;
   }
   if (b == roundResult.win) { 
     playerScore++;
-    result.textContent = `You won the round! Player selected ${playerSelection}. Bot selected ${computerSelection}`;
+    result.textContent = `You won the round! You selected ${playerSelection}. Bot selected ${computerSelection}.`;
     score.textContent = `Player score: ${playerScore}  Bot score: ${compScore}`;
   }
   if (b == roundResult.lose) {
     compScore++;
-    result.textContent = `You lost the round! Player selected ${playerSelection}. Bot selected ${computerSelection}`;
+    result.textContent = `You lost the round! You selected ${playerSelection}. Bot selected ${computerSelection}.`;
     score.textContent = `Player score: ${playerScore}  Bot score: ${compScore}`;
   }
 
   if (playerScore === 3) {
     result.textContent = 'You won the game! Hit Reset Game to play again.';
     score.textContent = `Player score: ${playerScore}  Bot score: ${compScore}`;
+    document.querySelector(".resetButton").style.display = "block";
     return;
   } else if (compScore === 3) {
     result.textContent = 'You lost the game! Hit Reset Game to play again.';
     score.textContent = `Player score: ${playerScore}  Bot score: ${compScore}`;
+    document.querySelector(".resetButton").style.display = "block";
     return;
-  }
+  } 
 };
 
 const getComputerChoice = () => {
@@ -91,15 +93,16 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-const reset = document.querySelector('.reset');
+const reset = document.querySelector('.resetButton');
 reset.addEventListener('click', () => resetGame());
 
 const resetGame = () => {
   playerScore = 0;
   compScore = 0;
   result.textContent = 'To play click rock, paper, or scissors.';
-  score.textContent = 'The game has been reset. Pick a move.';
-}
+  score.textContent = 'Player score: 0 Bot score: 0';
+  document.querySelector(".resetButton").style.display = "none";
+};
 
 let playerScore = 0;
 let compScore = 0;
