@@ -26,6 +26,13 @@ button {
   font-size: 120px;
   transition: all 0.4s ease;
 }
+
+.resetButton {
+  border: none;
+  background-color: transparent;
+  transition: all 0.4s ease;
+}
+
 .sign:hover,
 .resetButton:hover {
   cursor: pointer;
@@ -33,11 +40,6 @@ button {
   color: rgb(182, 251, 182);
 }
 
-.resetButton {
-  border: none;
-  background-color: transparent;
-  transition: all 0.4s ease;
-}
 .hideReset {
   display: none;
 }
